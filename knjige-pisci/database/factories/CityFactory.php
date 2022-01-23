@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\City;
+use App\Models\Writer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class WriterFactory extends Factory
+class CityFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,9 +15,7 @@ class WriterFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->name(),
-            'date_of_birth'=>$this->faker->date(),
-            'city'=>City::factory()
+            'name'=>$this->faker->city()
         ];
     }
 }

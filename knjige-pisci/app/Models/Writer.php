@@ -18,4 +18,8 @@ class Writer extends Model
     {
         return $this->hasMany(Book::class);
     }  
+    protected function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }

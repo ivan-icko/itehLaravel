@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnBirthplaceToWritersTable extends Migration
+class CreateCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddColumnBirthplaceToWritersTable extends Migration
      */
     public function up()
     {
-        Schema::table('writers', function (Blueprint $table) {
-            $table->string('birthplace');
+        Schema::create('cities', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddColumnBirthplaceToWritersTable extends Migration
      */
     public function down()
     {
-        Schema::table('writers', function (Blueprint $table) {
-            $table->dropColumn('birthplace');
-        });
+        Schema::dropIfExists('cities');
     }
 }
