@@ -14,14 +14,16 @@ class Writer extends Model
         'date_of_birth'
     ];
 
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
     public function books()
     {
         return $this->hasMany(Book::class);
     }  
   
 
-    public function city()
-    {
-        return $this->belongsTo(City::class);
-    }
+  
 }

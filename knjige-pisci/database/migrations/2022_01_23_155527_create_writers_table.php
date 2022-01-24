@@ -15,9 +15,9 @@ class CreateWritersTable extends Migration
     {
         Schema::create('writers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('country_id');
             $table->string('name');
             $table->date('date_of_birth');
-            $table->foreignId('city');
             $table->timestamps();
         });
     }

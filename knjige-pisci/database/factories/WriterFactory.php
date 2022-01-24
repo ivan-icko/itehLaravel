@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Book;
 use App\Models\City;
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class WriterFactory extends Factory
@@ -16,9 +17,9 @@ class WriterFactory extends Factory
     public function definition()
     {
         return [
+            'country_id'=>Country::factory(),
             'name'=>$this->faker->name(),
             'date_of_birth'=>$this->faker->date(),
-            'city'=>City::factory()
         ];
     }
 }
