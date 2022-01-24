@@ -15,7 +15,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $genres=Genre::all();
+        return $genres;
     }
 
     /**

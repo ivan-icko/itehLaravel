@@ -15,7 +15,8 @@ class WriterController extends Controller
      */
     public function index()
     {
-        //
+        $writers=Writer::all();
+        return $writers;
     }
 
     /**
