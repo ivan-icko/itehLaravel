@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Book;
 use App\Models\City;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

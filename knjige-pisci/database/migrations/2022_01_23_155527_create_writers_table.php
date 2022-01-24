@@ -17,6 +17,7 @@ class CreateWritersTable extends Migration
             $table->id();
             $table->string('name');
             $table->date('date_of_birth');
+            $table->foreignId('city');
             $table->timestamps();
         });
     }

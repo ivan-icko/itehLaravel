@@ -14,13 +14,14 @@ class Book extends Model
         'year_of_publication'
     ];
 
-    protected function genre()
-    {
-        return $this->belongsTo(Genre::class);
-    }
-    protected function writer()
-    {
-        return $this->belongsTo(Writer::class);
-    }
+   public function genre()
+   {
+       return $this->belongsTo(Genre::class);
+   }
+
+   public function writer()
+   {
+       return $this->belongsTo(Writer::class);
+   }
 }
 
