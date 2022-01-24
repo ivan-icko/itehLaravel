@@ -42,7 +42,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('/writers',WriterController::class);
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
-Route::resource('/books',BookResource::class);
+Route::resource('/books',BookController::class);
 
 Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::get('/profile',function(Request $request){
