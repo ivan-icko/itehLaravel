@@ -28,26 +28,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
 //Route::get('/writers',[WriterController::class,'index']);
 //Route::get('/writers/{id}',[WriterController::class,'show']);
 //Route::resource('writers',WriterController::class);
 //Route::resource('books',BookController::class);
 //Route::resource('genres',GenreController::class);
-//Route::resource('genres',GenreController::class);
-
 //Route::resource('books',BookController::class);
 
 
 
+Route::resource('genres',GenreController::class);
 Route::resource('/writers',WriterController::class);
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
-Route::resource('/books',BookController::class);
+Route::resource('/books',BookController::class)->only(['show']);
 
 Route::group(['middleware'=>['auth:sanctum']],function(){
-    Route::get('/profile',function(Request $request){
-        return auth()->user();
-    });
     Route::resource('books',BookController::class)->only(['update','store','destroy']);
     Route::post('/logout',[AuthController::class,'logout']);
 });

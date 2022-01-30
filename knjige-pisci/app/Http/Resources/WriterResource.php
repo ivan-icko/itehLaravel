@@ -19,7 +19,7 @@ class WriterResource extends JsonResource
             'id'=>$this->resource->id,
             'name'=>$this->resource->name,
             'date_of_birth'=>$this->resource->date_of_birth,
-            'country'=>new CountryResource($this->resource->country)
+            'country_id'=>new CountryResource($this->resource->country)
         ];
     }
 }

@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
-
+use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
 {
@@ -19,7 +18,11 @@ class AuthController extends Controller
         $validator= Validator::make($request->all(),[
             'name'=>'required|string|max:255',
             'email'=>'required|string|max:255|',
-            'password'=>'required|string|min:8'
+            'password'=>[
+                'required','string',
+                Password::min(8)->letters()->numbers()->mixedCase()->symbols()
+            ],
+            'country'=>'required|string'
         ]);
 
         if($validator->fails()){
@@ -28,7 +31,8 @@ class AuthController extends Controller
         $user=User::create([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>Hash::make($request->password)
+            'password'=>Hash::make($request->password),
+            'country'=>$request->country
         ]);
 
         $token=$user->createToken('auth_token')->plainTextToken;
